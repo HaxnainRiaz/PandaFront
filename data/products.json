@@ -1,0 +1,386 @@
+[
+    {
+        "id": "1",
+        "title": "Radiant Glow Serum",
+        "slug": "radiant-glow-serum",
+        "description": "A luxurious vitamin C serum that brightens and evens skin tone while reducing the appearance of fine lines.",
+        "longDescription": "Our signature Radiant Glow Serum combines potent vitamin C with hyaluronic acid and botanical extracts to deliver transformative results. This lightweight formula absorbs quickly, leaving skin luminous and refreshed without any sticky residue.",
+        "category": "serums",
+        "concerns": [
+            "brightening",
+            "anti-aging",
+            "dullness"
+        ],
+        "price": 89.00,
+        "salePrice": null,
+        "images": [
+            "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&q=80&w=800"
+        ],
+        "rating": 4.8,
+        "reviews": 234,
+        "stock": 45,
+        "ingredients": [
+            "Vitamin C",
+            "Hyaluronic Acid",
+            "Ferulic Acid",
+            "Vitamin E",
+            "Green Tea Extract"
+        ],
+        "usage": "Apply 2-3 drops to clean, dry skin morning and evening. Follow with moisturizer.",
+        "featured": true,
+        "bestseller": true
+    },
+    {
+        "id": "2",
+        "title": "Deep Hydration Cream",
+        "slug": "deep-hydration-cream",
+        "description": "Rich, nourishing moisturizer that provides 24-hour hydration. Perfect for dry and sensitive skin types.",
+        "longDescription": "Experience ultimate hydration with our Deep Hydration Cream. This rich yet non-greasy formula penetrates deeply to restore moisture balance and strengthen the skin barrier. Wake up to plump, supple skin.",
+        "category": "moisturizers",
+        "concerns": [
+            "dryness",
+            "sensitivity",
+            "dehydration"
+        ],
+        "price": 75.00,
+        "salePrice": 59.99,
+        "images": [
+            "https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&q=80&w=800"
+        ],
+        "rating": 4.9,
+        "reviews": 412,
+        "stock": 32,
+        "ingredients": [
+            "Ceramides",
+            "Squalane",
+            "Shea Butter",
+            "Niacinamide",
+            "Peptides"
+        ],
+        "usage": "Apply to face and neck after cleansing and serum application, morning and night.",
+        "featured": true,
+        "bestseller": true
+    },
+    {
+        "id": "3",
+        "title": "Gentle Cleansing Balm",
+        "slug": "gentle-cleansing-balm",
+        "description": "Luxurious oil-based cleanser that melts away makeup and impurities while nourishing skin.",
+        "longDescription": "Our award-winning Gentle Cleansing Balm offers a spa-like cleansing experience. The unique formula dissolves even waterproof makeup while maintaining skin's natural moisture barrier.",
+        "category": "cleansers",
+        "concerns": [
+            "makeup-removal",
+            "dryness",
+            "sensitivity"
+        ],
+        "price": 52.00,
+        "salePrice": null,
+        "images": [
+            "https://images.unsplash.com/photo-1556228720-198755645163?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1556228578-8d84f5ae1d91?auto=format&fit=crop&q=80&w=800"
+        ],
+        "rating": 4.7,
+        "reviews": 189,
+        "stock": 67,
+        "ingredients": [
+            "Sweet Almond Oil",
+            "Jojoba Oil",
+            "Vitamin E",
+            "Chamomile Extract",
+            "Rose Oil"
+        ],
+        "usage": "Massage onto dry skin, add water to emulsify, then rinse thoroughly. Use evening.",
+        "featured": false,
+        "bestseller": true
+    },
+    {
+        "id": "4",
+        "title": "Revitalizing Eye Cream",
+        "slug": "revitalizing-eye-cream",
+        "description": "Targeted treatment for the delicate eye area. Reduces dark circles, puffiness, and fine lines.",
+        "longDescription": "This concentrated eye cream delivers powerful anti-aging benefits to the delicate eye area. Caffeine reduces puffiness while peptides smooth fine lines and wrinkles.",
+        "category": "eye-care",
+        "concerns": [
+            "dark-circles",
+            "puffiness",
+            "fine-lines"
+        ],
+        "price": 68.00,
+        "salePrice": null,
+        "images": [
+            "https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1608248597279-f99d160bfbc8?auto=format&fit=crop&q=80&w=800"
+        ],
+        "rating": 4.6,
+        "reviews": 156,
+        "stock": 28,
+        "ingredients": [
+            "Caffeine",
+            "Peptides",
+            "Hyaluronic Acid",
+            "Vitamin K",
+            "Arnica Extract"
+        ],
+        "usage": "Gently pat a small amount around the eye area morning and evening.",
+        "featured": true,
+        "bestseller": false
+    },
+    {
+        "id": "5",
+        "title": "Exfoliating Toner",
+        "slug": "exfoliating-toner",
+        "description": "Gentle yet effective AHA/BHA toner that refines pores, smooths texture, and brightens complexion.",
+        "longDescription": "Our Exfoliating Toner combines glycolic and salicylic acids to gently resurface skin, revealing a smoother, more radiant complexion. Witch hazel and aloe soothe while balancing.",
+        "category": "toners",
+        "concerns": [
+            "texture",
+            "pores",
+            "dullness"
+        ],
+        "price": 45.00,
+        "salePrice": null,
+        "images": [
+            "https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1616750819456-5c220f7a0808?auto=format&fit=crop&q=80&w=800"
+        ],
+        "rating": 4.5,
+        "reviews": 203,
+        "stock": 54,
+        "ingredients": [
+            "Glycolic Acid",
+            "Salicylic Acid",
+            "Witch Hazel",
+            "Aloe Vera",
+            "Rose Water"
+        ],
+        "usage": "Apply to clean skin with a cotton pad or hands, avoiding eye area. Use 2-3 times weekly.",
+        "featured": false,
+        "bestseller": false
+    },
+    {
+        "id": "6",
+        "title": "Nourishing Face Oil",
+        "slug": "nourishing-face-oil",
+        "description": "Luxurious blend of botanical oils that deeply nourishes and restores radiance.",
+        "longDescription": "This exquisite face oil combines precious botanical oils to deliver intense nourishment and a healthy glow. Perfect for dry skin or as a final step in your evening routine.",
+        "category": "oils",
+        "concerns": [
+            "dryness",
+            "dullness",
+            "anti-aging"
+        ],
+        "price": 82.00,
+        "salePrice": 69.99,
+        "images": [
+            "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1615396899839-a9927db8e473?auto=format&fit=crop&q=80&w=800"
+        ],
+        "rating": 4.8,
+        "reviews": 178,
+        "stock": 41,
+        "ingredients": [
+            "Rosehip Oil",
+            "Argan Oil",
+            "Marula Oil",
+            "Vitamin E",
+            "Lavender Oil"
+        ],
+        "usage": "Apply 2-4 drops to damp skin, morning or evening. Can be mixed with moisturizer.",
+        "featured": true,
+        "bestseller": false
+    },
+    {
+        "id": "7",
+        "title": "Brightening Face Mask",
+        "slug": "brightening-face-mask",
+        "description": "Weekly treatment mask that illuminates and evens skin tone. Kaolin clay draws out impurities.",
+        "longDescription": "Transform dull, tired skin with our Brightening Face Mask. This creamy clay formula works in just 10 minutes to reveal a luminous, refreshed complexion.",
+        "category": "masks",
+        "concerns": [
+            "dullness",
+            "uneven-tone",
+            "congestion"
+        ],
+        "price": 58.00,
+        "salePrice": null,
+        "images": [
+            "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1571781565036-d3f752a712b5?auto=format&fit=crop&q=80&w=800"
+        ],
+        "rating": 4.7,
+        "reviews": 145,
+        "stock": 38,
+        "ingredients": [
+            "Kaolin Clay",
+            "Vitamin C",
+            "Turmeric",
+            "Honey",
+            "Papaya Extract"
+        ],
+        "usage": "Apply an even layer to clean skin, avoiding eye area. Leave for 10-15 minutes, then rinse.",
+        "featured": false,
+        "bestseller": false
+    },
+    {
+        "id": "8",
+        "title": "Retinol Night Treatment",
+        "slug": "retinol-night-treatment",
+        "description": "Advanced anti-aging treatment with encapsulated retinol. Reduces wrinkles, improves texture.",
+        "longDescription": "Our gentle yet effective Retinol Night Treatment harnesses the power of encapsulated retinol to minimize irritation while delivering maximum results. Wake up to smoother, younger-looking skin.",
+        "category": "treatments",
+        "concerns": [
+            "anti-aging",
+            "wrinkles",
+            "texture"
+        ],
+        "price": 95.00,
+        "salePrice": null,
+        "images": [
+            "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1570194065650-d995aa6f6333?auto=format&fit=crop&q=80&w=800"
+        ],
+        "rating": 4.9,
+        "reviews": 267,
+        "stock": 22,
+        "ingredients": [
+            "Encapsulated Retinol",
+            "Peptides",
+            "Hyaluronic Acid",
+            "Bisabolol",
+            "Vitamin E"
+        ],
+        "usage": "Apply a pea-sized amount to clean, dry skin at night. Start 2-3 times weekly, increase as tolerated.",
+        "featured": true,
+        "bestseller": true
+    },
+    {
+        "id": "9",
+        "title": "Hydrating Mist",
+        "slug": "hydrating-mist",
+        "description": "Refreshing facial mist that instantly hydrates and sets makeup.",
+        "longDescription": "Keep skin refreshed throughout the day with our Hydrating Mist. This ultra-fine mist delivers instant hydration and can be used before or after makeup application.",
+        "category": "mists",
+        "concerns": [
+            "dehydration",
+            "dullness",
+            "sensitivity"
+        ],
+        "price": 38.00,
+        "salePrice": null,
+        "images": [
+            "https://images.unsplash.com/photo-1601055903647-87e19662b45e?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&q=80&w=800"
+        ],
+        "rating": 4.6,
+        "reviews": 198,
+        "stock": 76,
+        "ingredients": [
+            "Rose Water",
+            "Hyaluronic Acid",
+            "Glycerin",
+            "Cucumber Extract",
+            "Aloe Vera"
+        ],
+        "usage": "Hold 8-10 inches from face and mist. Use throughout the day as needed.",
+        "featured": false,
+        "bestseller": false
+    },
+    {
+        "id": "10",
+        "title": "SPF 50 Sunscreen",
+        "slug": "spf-50-sunscreen",
+        "description": "Lightweight, invisible sunscreen with broad-spectrum SPF 50 protection.",
+        "longDescription": "Protect your skin with our advanced SPF 50 Sunscreen. This invisible, weightless formula provides superior broad-spectrum protection without white cast or greasiness.",
+        "category": "sunscreen",
+        "concerns": [
+            "sun-protection",
+            "anti-aging",
+            "sensitivity"
+        ],
+        "price": 48.00,
+        "salePrice": null,
+        "images": [
+            "https://images.unsplash.com/photo-1556228720-198755645163?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?auto=format&fit=crop&q=80&w=800"
+        ],
+        "rating": 4.8,
+        "reviews": 312,
+        "stock": 89,
+        "ingredients": [
+            "Zinc Oxide",
+            "Titanium Dioxide",
+            "Vitamin E",
+            "Green Tea Extract",
+            "Niacinamide"
+        ],
+        "usage": "Apply generously to face and neck 15 minutes before sun exposure. Reapply every 2 hours.",
+        "featured": false,
+        "bestseller": true
+    },
+    {
+        "id": "11",
+        "title": "Lip Treatment Balm",
+        "slug": "lip-treatment-balm",
+        "description": "Intensive lip treatment that heals, hydrates, and plumps.",
+        "longDescription": "Our Lip Treatment Balm is a luxurious blend of nourishing oils and butters that transform dry, chapped lips into soft, supple perfection.",
+        "category": "lip-care",
+        "concerns": [
+            "dryness",
+            "chapped-lips",
+            "sensitivity"
+        ],
+        "price": 28.00,
+        "salePrice": 22.99,
+        "images": [
+            "https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&q=80&w=800"
+        ],
+        "rating": 4.7,
+        "reviews": 167,
+        "stock": 94,
+        "ingredients": [
+            "Shea Butter",
+            "Coconut Oil",
+            "Beeswax",
+            "Vitamin E",
+            "Peppermint Oil"
+        ],
+        "usage": "Apply to lips as needed throughout the day and before bed.",
+        "featured": false,
+        "bestseller": false
+    },
+    {
+        "id": "12",
+        "title": "Detox Clay Mask",
+        "slug": "detox-clay-mask",
+        "description": "Deep-cleansing mask that purifies pores and removes impurities.",
+        "longDescription": "Experience a spa-quality detox with our Detox Clay Mask. This powerful yet gentle formula draws out toxins and excess oil, leaving skin refreshed and balanced.",
+        "category": "masks",
+        "concerns": [
+            "congestion",
+            "oily-skin",
+            "pores"
+        ],
+        "price": 54.00,
+        "salePrice": null,
+        "images": [
+            "https://images.unsplash.com/photo-1571781565036-d3f752a712b5?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&q=80&w=800"
+        ],
+        "rating": 4.6,
+        "reviews": 134,
+        "stock": 47,
+        "ingredients": [
+            "Activated Charcoal",
+            "Bentonite Clay",
+            "Tea Tree Oil",
+            "Eucalyptus",
+            "Willow Bark"
+        ],
+        "usage": "Apply to clean skin 1-2 times weekly. Leave for 10 minutes, then rinse with warm water.",
+        "featured": false,
+        "bestseller": false
+    }
+]
