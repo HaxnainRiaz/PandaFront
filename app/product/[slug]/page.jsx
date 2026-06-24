@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -67,14 +67,20 @@ export default function ProductPage() {
   const [imageError, setImageError] = useState(false);
   const [activeTab, setActiveTab] = useState('description');
   const [hasFiredView, setHasFiredView] = useState(false);
+  const managedProductsRef = useRef(managedProducts);
+
+  useEffect(() => {
+    managedProductsRef.current = managedProducts;
+  }, [managedProducts]);
 
   useEffect(() => {
     let cancelled = false;
+    const controller = new AbortController();
 
     async function loadProduct() {
       setLoading(true);
       try {
-        const res = await fetch(`${getApiUrl()}/products/slug/${slug}`);
+        const res = await fetch(`${getApiUrl()}/products/slug/${slug}`, { signal: controller.signal });
         const data = await res.json();
         if (!cancelled && data.success) {
           setProduct(data.data);
@@ -84,15 +90,18 @@ export default function ProductPage() {
       } catch (_) { /* fallback below */ }
 
       if (!cancelled) {
-        const fallback = managedProducts.find((p) => p.slug === slug);
+        const fallback = managedProductsRef.current.find((p) => p.slug === slug);
         setProduct(fallback || null);
         setLoading(false);
       }
     }
 
     loadProduct();
-    return () => { cancelled = true; };
-  }, [slug, managedProducts]);
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
+  }, [slug]);
 
   const productImages = useMemo(
     () => (Array.isArray(product?.images) && product.images.length > 0 ? product.images : []),
