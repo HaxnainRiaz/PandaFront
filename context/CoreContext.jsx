@@ -93,10 +93,10 @@ export function CoreProvider({ children }) {
             });
 
             socket.on('banner:new', (b) => setBanners((prev) => [...prev, b]));
-            socket.on('banner:update', (b) => setBanners((prev) => prev.map((prevB) => (prevB._id === b._id ? b : prevB)));
+            socket.on('banner:update', (b) => setBanners((prev) => prev.map((prevB) => (prevB._id === b._id ? b : prevB))));
             socket.on('banner:delete', ({ id }) => setBanners((prev) => prev.filter((b) => b._id !== id)));
             socket.on('coupon:new', (c) => setCoupons((prev) => [c, ...prev]));
-            socket.on('coupon:update', (c) => setCoupons((prev) => prev.map((prevC) => (prevC._id === c._id ? c : prevC)));
+            socket.on('coupon:update', (c) => setCoupons((prev) => prev.map((prevC) => (prevC._id === c._id ? c : prevC))));
             socket.on('coupon:delete', ({ id }) => setCoupons((prev) => prev.filter((c) => c._id !== id)));
             socket.on('cms:update', (cmsData) => setSettings((prev) => ({ ...prev, ...cmsData })));
         });
