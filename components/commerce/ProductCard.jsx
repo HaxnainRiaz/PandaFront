@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/Badge';
 import { formatPrice, calculateDiscount, resolveImageUrl, stripHtml, cleanRichText } from '@/lib/utils';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCart } from '@/hooks/useCart';
 import WishlistButton from './WishlistButton';
 import { trackMetaEvent } from '@/lib/metaPixel';
@@ -15,6 +15,10 @@ export default function ProductCard({ product }) {
     const { addToCart } = useCart();
     const [isAdding, setIsAdding] = useState(false);
     const [added, setAdded] = useState(false);
+
+    useEffect(() => {
+        setImageError(false);
+    }, [product]);
 
     const discount = calculateDiscount(product.price, product.salePrice);
     const displayPrice = product.salePrice || product.price;

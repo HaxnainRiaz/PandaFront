@@ -26,7 +26,7 @@ import {
   MessageSquare,
   CheckCircle2,
 } from 'lucide-react';
-import { formatPrice, calculateDiscount, resolveImageUrl } from '@/lib/utils';
+import { formatPrice, calculateDiscount, resolveImageUrl, stripHtml } from '@/lib/utils';
 import RichTextRenderer from '@/components/commerce/RichTextRenderer';
 import { useCart } from '@/hooks/useCart';
 import WishlistButton from '@/components/commerce/WishlistButton';
@@ -68,6 +68,10 @@ export default function ProductPage() {
   const [activeTab, setActiveTab] = useState('description');
   const [hasFiredView, setHasFiredView] = useState(false);
   const managedProductsRef = useRef(managedProducts);
+
+  useEffect(() => {
+    setImageError(false);
+  }, [product, selectedImage]);
 
   useEffect(() => {
     managedProductsRef.current = managedProducts;
@@ -416,10 +420,8 @@ export default function ProductPage() {
             {/* Short description preview */}
             {product.description && (
               <p className="text-sm text-gray-600 leading-relaxed mb-6 line-clamp-3">
-                {typeof product.description === 'string'
-                  ? product.description.replace(/<[^>]+>/g, '').slice(0, 220)
-                  : ''}
-                {(product.description?.length || 0) > 220 ? '...' : ''}
+                {stripHtml(product.description).slice(0, 220)}
+                {stripHtml(product.description).length > 220 ? '...' : ''}
               </p>
             )}
 

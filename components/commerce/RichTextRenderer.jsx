@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { getApiBaseUrl } from "@/lib/apiConfig";
 import dynamic from "next/dynamic";
 import "react-quill-new/dist/quill.bubble.css"; // Bubble theme is cleaner for rendering
