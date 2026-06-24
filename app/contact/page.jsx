@@ -5,7 +5,7 @@ import PageHero from '@/components/ui/PageHero';
 import { Container, Button, Input } from '@/components/ui';
 import { useStoreAuth } from '@/context/StoreAuthContext';
 
-const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
+import { getApiUrl } from '@/lib/apiConfig';
 
 export default function ContactPage() {
     const { user } = useStoreAuth();
@@ -34,7 +34,7 @@ export default function ContactPage() {
             const headers = { 'Content-Type': 'application/json' };
             if (token) headers['Authorization'] = `Bearer ${token}`;
 
-            const res = await fetch(`${API_URL}/support-tickets`, {
+            const res = await fetch(`${getApiUrl()}/support-tickets`, {
                 method: 'POST',
                 headers,
                 body: JSON.stringify(formData)

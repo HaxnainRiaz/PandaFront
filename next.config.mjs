@@ -34,7 +34,11 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'store-backend-neon.vercel.app',
+        hostname: 'pand-back.vercel.app',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pandaemart.com',
       }
     ],
   },

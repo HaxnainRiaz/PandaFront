@@ -4,9 +4,9 @@ import { createContext, useContext, useState, useEffect, useCallback, useMemo } 
 import { useRouter } from 'next/navigation';
 import { useToast } from './ToastContext';
 
-const StoreAuthContext = createContext();
+import { getApiUrl } from '@/lib/apiConfig';
 
-const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
+const StoreAuthContext = createContext();
 
 export function StoreAuthProvider({ children }) {
     const [user, setUser] = useState(null);
@@ -37,7 +37,7 @@ export function StoreAuthProvider({ children }) {
         }
 
         try {
-            const res = await fetch(`${API_URL}/auth/me`, {
+            const res = await fetch(`${getApiUrl()}/auth/me`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -63,7 +63,7 @@ export function StoreAuthProvider({ children }) {
 
     const login = useCallback(async (email, password) => {
         try {
-            const res = await fetch(`${API_URL}/auth/login`, {
+            const res = await fetch(`${getApiUrl()}/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -90,7 +90,7 @@ export function StoreAuthProvider({ children }) {
 
     const register = useCallback(async (name, email, password) => {
         try {
-            const res = await fetch(`${API_URL}/auth/register`, {
+            const res = await fetch(`${getApiUrl()}/auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -150,7 +150,7 @@ export function StoreAuthProvider({ children }) {
         const method = isWishlisted ? 'DELETE' : 'POST';
 
         try {
-            const res = await fetch(`${API_URL}/users/wishlist/${productId}`, {
+            const res = await fetch(`${getApiUrl()}/users/wishlist/${productId}`, {
                 method,
                 headers: { Authorization: `Bearer ${token}` }
             });
@@ -176,7 +176,7 @@ export function StoreAuthProvider({ children }) {
         const token = getToken();
         if (!token) return false;
         try {
-            const res = await fetch(`${API_URL}/users/addresses`, {
+            const res = await fetch(`${getApiUrl()}/users/addresses`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -200,7 +200,7 @@ export function StoreAuthProvider({ children }) {
         const token = getToken();
         if (!token) return false;
         try {
-            const res = await fetch(`${API_URL}/users/addresses/${addressId}`, {
+            const res = await fetch(`${getApiUrl()}/users/addresses/${addressId}`, {
                 method: 'DELETE',
                 headers: { Authorization: `Bearer ${token}` }
             });
@@ -220,7 +220,7 @@ export function StoreAuthProvider({ children }) {
         const token = getToken();
         if (!token) return false;
         try {
-            const res = await fetch(`${API_URL}/users/profile`, {
+            const res = await fetch(`${getApiUrl()}/users/profile`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -247,7 +247,7 @@ export function StoreAuthProvider({ children }) {
         const token = getToken();
         if (!token) return [];
         try {
-            const res = await fetch(`${API_URL}/users/my-orders`, {
+            const res = await fetch(`${getApiUrl()}/users/my-orders`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             const data = await res.json();

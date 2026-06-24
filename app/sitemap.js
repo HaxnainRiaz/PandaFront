@@ -1,5 +1,7 @@
+import { PRODUCTION_URLS } from '@/lib/apiConfig';
+
 export default async function sitemap() {
-    const baseUrl = 'https://luminelle.org';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || PRODUCTION_URLS.webstore;
 
     // In a real app, you would fetch products and categories from your API here
     // to generate dynamic URLs. For now, we'll include the main pages.

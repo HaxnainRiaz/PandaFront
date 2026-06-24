@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { formatPrice, resolveImageUrl } from '@/lib/utils';
 import { useCore } from '@/context/CoreContext';
-import ProductCard from '@/components/commerce/ProductCard';
+import { getApiUrl } from '@/lib/apiConfig';
 
 export default function AccountPage() {
     const { user, loading, logout, getOrders, updateProfile, addAddress, deleteAddress } = useStoreAuth();
@@ -574,12 +574,10 @@ function SupportTicketsSection() {
     const [selectedTicket, setSelectedTicket] = useState(null);
     const [reply, setReply] = useState("");
     const [sending, setSending] = useState(false);
-    const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
-
     const fetchTickets = async () => {
         const token = localStorage.getItem('token');
         try {
-            const res = await fetch(`${API_URL}/support-tickets/my-tickets`, {
+            const res = await fetch(`${getApiUrl()}/support-tickets/my-tickets`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             const data = await res.json();
@@ -603,7 +601,7 @@ function SupportTicketsSection() {
         setSending(true);
         const token = localStorage.getItem('token');
         try {
-            const res = await fetch(`${API_URL}/support-tickets/${selectedTicket._id}/reply`, {
+            const res = await fetch(`${getApiUrl()}/support-tickets/${selectedTicket._id}/reply`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

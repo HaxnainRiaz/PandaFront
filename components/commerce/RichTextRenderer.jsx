@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { getApiBaseUrl } from "@/lib/apiConfig";
 import dynamic from "next/dynamic";
 import "react-quill-new/dist/quill.bubble.css"; // Bubble theme is cleaner for rendering
 
@@ -27,11 +27,7 @@ export default function RichTextRenderer({ content, className = "" }) {
                 let delta = Array.isArray(parsed) ? parsed : (parsed.ops || []);
 
                 // 🌉 Resolve internal image paths in Delta
-                let apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-                if (typeof window !== 'undefined' && !window.location.hostname.includes('localhost') && apiUrl.includes('localhost')) {
-                    apiUrl = 'https://store-backend-neon.vercel.app';
-                }
-                const cleanApiUrl = apiUrl.replace(/\/$/, '').replace(/\/api$/, '');
+                const cleanApiUrl = getApiBaseUrl();
 
                 delta = delta.map(op => {
                     if (op.insert && op.insert.image) {
@@ -64,11 +60,7 @@ export default function RichTextRenderer({ content, className = "" }) {
             }
         } else {
             // Handle raw HTML and resolve images there too
-            let apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-            if (typeof window !== 'undefined' && !window.location.hostname.includes('localhost') && apiUrl.includes('localhost')) {
-                apiUrl = 'https://store-backend-neon.vercel.app';
-            }
-            const cleanApiUrl = apiUrl.replace(/\/$/, '').replace(/\/api$/, '');
+            const cleanApiUrl = getApiBaseUrl();
             let processedHtml = typeof content === 'string'
                 ? content.replace(/src="\/uploads\//g, `src="${cleanApiUrl}/uploads/`)
                 : content;

@@ -1,12 +1,9 @@
 'use client';
 
 import { createContext, useContext, useState, useCallback, useEffect } from 'react';
+import { getApiUrl, getSocketUrl } from '@/lib/apiConfig';
 
 const ReviewsContext = createContext();
-let API_URL = `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api`;
-if (typeof window !== 'undefined' && !window.location.hostname.includes('localhost') && API_URL.includes('localhost')) {
-    API_URL = 'https://store-backend-neon.vercel.app/api';
-}
 
 export function ReviewsProvider({ children }) {
     const [reviews, setReviews] = useState({}); // { [productId]: Review[] }
@@ -14,7 +11,7 @@ export function ReviewsProvider({ children }) {
 
     const fetchReviews = useCallback(async (productId) => {
         try {
-            const res = await fetch(`${API_URL}/reviews/product/${productId}`);
+            const res = await fetch(`${getApiUrl()}/reviews/product/${productId}`);
             const data = await res.json();
 
             if (data.success) {
@@ -45,7 +42,7 @@ export function ReviewsProvider({ children }) {
                 const formData = new FormData();
                 formData.append('image', blob, `review-${Date.now()}.png`);
 
-                const uploadRes = await fetch(`${API_URL}/upload`, {
+                const uploadRes = await fetch(`${getApiUrl()}/upload`, {
                     method: 'POST',
                     body: formData
                 });
@@ -63,7 +60,7 @@ export function ReviewsProvider({ children }) {
             };
             delete payload.image;
 
-            const res = await fetch(`${API_URL}/reviews`, {
+            const res = await fetch(`${getApiUrl()}/reviews`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -91,10 +88,7 @@ export function ReviewsProvider({ children }) {
 
     // --- WebSocket Integration ---
     useEffect(() => {
-        let socketUrl = process.env.NEXT_PUBLIC_SOCKET_URL || process.env.NEXT_PUBLIC_API_URL?.replace('/api', '') || 'http://localhost:5000';
-        if (typeof window !== 'undefined' && !window.location.hostname.includes('localhost') && socketUrl.includes('localhost')) {
-            socketUrl = 'https://store-backend-neon.vercel.app';
-        }
+        const socketUrl = getSocketUrl();
 
         let socket;
 

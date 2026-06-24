@@ -36,10 +36,7 @@ import { useCore } from '@/context/CoreContext';
 import { useToast } from '@/context/ToastContext';
 import { trackMetaEvent } from '@/lib/metaPixel';
 
-let API_URL = `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api`;
-if (typeof window !== 'undefined' && !window.location.hostname.includes('localhost') && API_URL.includes('localhost')) {
-  API_URL = 'https://store-backend-neon.vercel.app/api';
-}
+import { getApiUrl } from '@/lib/apiConfig';
 
 function getCategoryIds(product) {
   if (!product?.category) return [];
@@ -77,7 +74,7 @@ export default function ProductPage() {
     async function loadProduct() {
       setLoading(true);
       try {
-        const res = await fetch(`${API_URL}/products/slug/${slug}`);
+        const res = await fetch(`${getApiUrl()}/products/slug/${slug}`);
         const data = await res.json();
         if (!cancelled && data.success) {
           setProduct(data.data);

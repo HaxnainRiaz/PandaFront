@@ -27,24 +27,21 @@ export default function SearchOverlay({ isOpen, onClose }) {
 
     useEffect(() => {
         if (query.trim().length > 1) {
-            const lowerQuery = query.toLowerCase();
-            const filtered = products.filter(product =>
-                product.title?.toLowerCase().includes(lowerQuery) ||
-                product.description?.toLowerCase().includes(lowerQuery) ||
-                product.category?.name?.toLowerCase().includes(lowerQuery)
-            ).slice(0, 4);
-            setResults(filtered);
-
-            // Meta Tracking (Debounced)
             const timer = setTimeout(() => {
-                trackMetaEvent('Search', {
-                    search_string: query
-                });
-            }, 1000);
+                const lowerQuery = query.toLowerCase();
+                const filtered = products.filter(product =>
+                    product.title?.toLowerCase().includes(lowerQuery) ||
+                    product.description?.toLowerCase().includes(lowerQuery) ||
+                    product.category?.title?.toLowerCase().includes(lowerQuery) ||
+                    product.category?.name?.toLowerCase().includes(lowerQuery)
+                ).slice(0, 4);
+                setResults(filtered);
+
+                trackMetaEvent('Search', { search_string: query });
+            }, 300);
             return () => clearTimeout(timer);
-        } else {
-            setResults([]);
         }
+        setResults([]);
     }, [query, products]);
 
     if (!isOpen) return null;

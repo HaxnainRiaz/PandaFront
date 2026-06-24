@@ -12,7 +12,7 @@ import { useStoreAuth } from '@/context/StoreAuthContext';
 import { useCore } from '@/context/CoreContext';
 import { fetchMetaConfig, trackMetaEvent, getFbp, getFbc } from '@/lib/metaPixel';
 
-const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
+import { getApiUrl } from '@/lib/apiConfig';
 
 export default function CheckoutPage() {
     const { cart, total, clearCart } = useCart();
@@ -94,7 +94,7 @@ export default function CheckoutPage() {
         setCouponError('');
 
         try {
-            const res = await fetch(`${API_URL}/coupons/validate/${couponInput}`);
+            const res = await fetch(`${getApiUrl()}/coupons/validate/${couponInput}`);
             const data = await res.json();
 
             if (data.success) {
@@ -151,7 +151,7 @@ export default function CheckoutPage() {
                 metaEventId: `purchase_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`
             };
 
-            const res = await fetch(`${API_URL}/orders`, {
+            const res = await fetch(`${getApiUrl()}/orders`, {
                 method: 'POST',
                 headers: headers,
                 body: JSON.stringify(payload)
