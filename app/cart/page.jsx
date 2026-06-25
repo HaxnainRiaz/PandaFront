@@ -111,8 +111,10 @@ export default function CartPage() {
                                         <span className="font-extrabold text-[#e63946]">{formatPrice(grandTotal)}</span>
                                     </div>
                                 </div>
+                                <div className="flex flex-col gap-3 mt-4">
                                 <Link href="/checkout"><Button className="w-full" size="lg">Proceed to Checkout</Button></Link>
                                 <Link href="/shop"><Button variant="outline" className="w-full">Continue Shopping</Button></Link>
+                                </div>
                                 <div className="space-y-2.5 pt-2 border-t border-gray-100">
                                     <div className="flex items-center gap-2 text-xs text-gray-500"><ShieldCheck size={14} className="text-[#10b981]" /> Secure checkout</div>
                                     <div className="flex items-center gap-2 text-xs text-gray-500"><Truck size={14} className="text-[#e63946]" /> Fast delivery across Pakistan</div>

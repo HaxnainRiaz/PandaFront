@@ -97,7 +97,7 @@ export default function MobileBottomNav() {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="flex flex-col transform -translate-x-[13px] items-center -mt-6"
+                                    className="flex flex-col transform -translate-x-[17px] items-center -mt-6"
                                     aria-label={item.name}
                                 >
                                     <div className={`w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-200 ${

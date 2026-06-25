@@ -90,7 +90,7 @@ export default function CollectionPage() {
             <div className="min-h-screen bg-[#f8f9fa]">
                 <PageHero title="Loading..." subtitle="" />
                 <Container className="py-12">
-                    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                         {Array.from({ length: 8 }).map((_, i) => <ProductSkeleton key={i} />)}
                     </div>
                 </Container>
@@ -122,7 +122,7 @@ export default function CollectionPage() {
                 </p>
 
                 {collection.products.length > 0 ? (
-                    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                         {collection.products.map((product) => (
                             <ProductCard key={product._id || product.id} product={product} />
                         ))}

@@ -125,7 +125,7 @@ export default function CartDrawer({ isOpen, onClose }) {
 
                     {/* Footer */}
                     {cart.length > 0 && (
-                        <div className="border-t border-[#e5e7eb] p-6 space-y-4">
+                        <div className="border-t border-[#e5e7eb] p-6 pb-24 space-y-4">
                             <div className="flex justify-between text-lg font-semibold">
                                 <span>Subtotal:</span>
                                 <span className="text-[#1a1a2e]">{formatPrice(total)}</span>
