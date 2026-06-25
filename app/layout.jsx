@@ -45,8 +45,8 @@ export const metadata = {
         description: 'Shop the latest fashion, beauty & lifestyle trends. Fast delivery across Pakistan.',
     },
     icons: {
-        icon: '/favicon.png',
-        apple: '/favicon.png',
+        icon: '/favicon.ico',
+        apple: '/favicon.ico',
     },
 };
 

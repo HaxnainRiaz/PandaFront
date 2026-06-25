@@ -97,7 +97,7 @@ export default function MobileBottomNav() {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="flex flex-col items-center -mt-6"
+                                    className="flex flex-col transform -translate-x-[13px] items-center -mt-6"
                                     aria-label={item.name}
                                 >
                                     <div className={`w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-200 ${
@@ -118,7 +118,7 @@ export default function MobileBottomNav() {
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className="flex flex-col items-center gap-0.5 px-2 py-1 rounded-xl transition-all duration-200 relative"
+                                className="flex flex-col items-center transform -translate-x-[6px] gap-0.5 px-2 py-1 rounded-xl transition-all duration-200 relative"
                                 aria-label={item.name}
                             >
                                 <span className={`transition-colors duration-200 ${isActive ? 'text-[#e63946]' : 'text-gray-500'}`}>

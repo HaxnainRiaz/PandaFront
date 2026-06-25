@@ -58,7 +58,7 @@ export default function Header() {
 
                         {/* ── Logo ── */}
                         <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
-                            <div className="w-8 h-8 rounded-[10px] bg-[#e63946] flex items-center justify-center shadow-sm">
+                            {/* <div className="w-8 h-8 rounded-[10px] bg-[#e63946] flex items-center justify-center shadow-sm">
                                 <span className="text-white font-black text-sm leading-none">P</span>
                             </div>
                             <div className="leading-none">
@@ -68,7 +68,10 @@ export default function Header() {
                                 >
                                     Panda<span className="text-[#e63946]">E-Mart</span>
                                 </span>
-                            </div>
+                            </div> */}
+                            <span>
+                                <img src="HeadLogo.png" alt="Panda E-Mart Logo" className="h-16 py-2 w-auto" />
+                            </span>
                         </Link>
 
                         {/* ── Desktop Navigation ── */}
