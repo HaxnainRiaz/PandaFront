@@ -1,6 +1,6 @@
 # Panda E-Mart — Premium E-commerce Store
 
-A modern, conversion-focused e-commerce website inspired by [pandaemart.com](https://pandaemart.com/), built with Next.js App Router, Tailwind CSS, and React.
+A modern, conversion-focused e-commerce website inspired by [http://localhost:3000](https://http://localhost:3000/), built with Next.js App Router, Tailwind CSS, and React.
 
 ## Features
 

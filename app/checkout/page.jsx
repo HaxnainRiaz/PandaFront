@@ -10,7 +10,7 @@ import { useCart } from '@/hooks/useCart';
 import { formatPrice, resolveImageUrl } from '@/lib/utils';
 import { useStoreAuth } from '@/context/StoreAuthContext';
 import { useCore } from '@/context/CoreContext';
-import { fetchMetaConfig, trackMetaEvent, getFbp, getFbc } from '@/lib/metaPixel';
+import { fetchMetaConfig, trackMetaEvent, getFbp, getFbc, buildPurchaseEventId } from '@/lib/metaPixel';
 
 import { getApiUrl } from '@/lib/apiConfig';
 
@@ -30,6 +30,7 @@ export default function CheckoutPage() {
     const [apiError, setApiError] = useState('');
 
     const [hasFiredInit, setHasFiredInit] = useState(false);
+    const [hasFiredPaymentInfo, setHasFiredPaymentInfo] = useState(false);
 
     // Track InitiateCheckout
     useEffect(() => {
@@ -49,7 +50,26 @@ export default function CheckoutPage() {
             }
         };
         init();
-    }, [cart.length, hasFiredInit]);
+    }, [cart, total, hasFiredInit]);
+
+    // Track AddPaymentInfo when COD payment method is shown (default on checkout)
+    useEffect(() => {
+        const trackPayment = async () => {
+            const config = await fetchMetaConfig();
+            if (config?.success && config?.isPixelEnabled && cart.length > 0 && !hasFiredPaymentInfo && !isSuccess) {
+                const eventId = `api_${Date.now()}`;
+                trackMetaEvent('AddPaymentInfo', {
+                    content_ids: cart.map(item => item.id || item._id),
+                    content_type: 'product',
+                    value: total,
+                    currency: 'PKR',
+                    payment_method: 'cod'
+                }, eventId);
+                setHasFiredPaymentInfo(true);
+            }
+        };
+        trackPayment();
+    }, [cart.length, hasFiredPaymentInfo, isSuccess, total]);
 
     const [formData, setFormData] = useState({
         email: '',
@@ -144,11 +164,9 @@ export default function CheckoutPage() {
                     country: formData.country
                 },
                 coupon: couponCode,
-                // Meta Tracking Data
                 fbp: getFbp(),
                 fbc: getFbc(),
-                eventSourceUrl: typeof window !== 'undefined' ? window.location.href : '',
-                metaEventId: `purchase_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`
+                eventSourceUrl: typeof window !== 'undefined' ? window.location.href : ''
             };
 
             const res = await fetch(`${getApiUrl()}/orders`, {
@@ -162,16 +180,20 @@ export default function CheckoutPage() {
             if (data.success) {
                 const order = data.data;
                 const stableOrderId = order.orderNumber || order._id;
-                const eventId = order.metaEventId || `purchase_${order._id}`;
+                const eventId = order.metaEventId || buildPurchaseEventId(order._id);
+                const purchaseValue = data.summary?.total ?? order.totalAmount ?? total;
 
-                // Meta Tracking (Purchase Browser Event)
                 trackMetaEvent('Purchase', {
                     content_ids: cart.map(item => item.id || item._id),
                     content_type: 'product',
-                    value: total,
+                    value: purchaseValue,
                     currency: 'PKR',
                     num_items: cart.reduce((acc, item) => acc + item.quantity, 0),
-                    contents: cart.map(item => ({ id: item.id || item._id, quantity: item.quantity })),
+                    contents: cart.map(item => ({
+                        id: item.id || item._id,
+                        quantity: item.quantity,
+                        item_price: item.price
+                    })),
                     order_id: stableOrderId
                 }, eventId);
 
