@@ -29,7 +29,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'http://localhost:3000',
+        hostname: 'https://pandaemart.com',
       }
     ],
   },
