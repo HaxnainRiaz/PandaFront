@@ -28,8 +28,8 @@ export default function MetaPixel() {
             setConfig(metaConfigData);
             
             if (metaConfigData?.success && metaConfigData?.isPixelEnabled && metaConfigData?.pixelId) {
-                // If consent was already granted, initialize and track PageView
-                if (storedConsent === 'true') {
+                // If consent was not explicitly declined ('false'), initialize and track PageView
+                if (storedConsent !== 'false') {
                     initMetaPixel(metaConfigData.pixelId);
                     if (!initialized.current) {
                         trackMetaEvent('PageView');
@@ -42,9 +42,9 @@ export default function MetaPixel() {
         setup();
     }, []);
 
-    // Track PageView on route change (only if consent has been granted)
+    // Track PageView on route change (unless consent has been explicitly declined)
     useEffect(() => {
-        if (initialized.current && consent === 'true') {
+        if (initialized.current && consent !== 'false') {
             trackMetaEvent('PageView');
         }
     }, [pathname, searchParams, consent]);

@@ -27,14 +27,14 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata = {
-    metadataBase: new URL('https://https://pandaemart.com'),
+    metadataBase: new URL('https://pandaemart.com'),
     title: 'Panda E-Mart — Shop Smart, Live Better',
     description: 'Discover trending fashion, beauty, gadgets, and lifestyle products at unbeatable prices. Free shipping on orders over Rs. 4,999.',
     keywords: 'online shopping pakistan, fashion accessories, beauty products, home gadgets, handbags, serums, kitchen tools, panda emart, deals',
     openGraph: {
         title: 'Panda E-Mart — Shop Smart, Live Better',
         description: 'Trending lifestyle products delivered across Pakistan. Fashion, Beauty, Gadgets & More.',
-        url: 'https://https://pandaemart.com',
+        url: 'https://pandaemart.com',
         type: 'website',
         locale: 'en_PK',
         siteName: 'Panda E-Mart',

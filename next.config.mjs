@@ -29,8 +29,16 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'https://pandaemart.com',
-      }
+        hostname: 'pandaemart.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.pandaemart.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
     ],
   },
   async redirects() {
